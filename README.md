@@ -1,4 +1,3 @@
 # GameofTrons
-Something good on TRON ecosystem
 
-Not just a game!
+A persistent agentic strategy game on TRON. Deploy AI Generals to capture Memecoin Kingdoms, control TVL, and claim the Iron Throne.
