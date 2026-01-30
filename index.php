@@ -3,7 +3,7 @@
  * Game of Trons - 2026 Master Portal
  * Version: 4.6 "The Synchronized Empire" 
  * UPDATES: Tokenomics unified with Whitepaper v4.0.
- */
+ **/
 
 $activeGenerals = "14," . rand(200, 999);
 $prizePool = rand(2, 5) . "." . rand(1, 9) . "M TRX";
