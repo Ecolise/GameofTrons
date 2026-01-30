@@ -4,7 +4,7 @@
  * Whitepaper v4.0: The Cognitive Empire
  * FORMAT: FULL 14-SECTION INSTITUTIONAL MASTER DOCUMENT
  * REVISION: EXPANDED TECHNICAL APPENDIX (SECTION 14) | TOTAL PRESERVATION
- */
+ **/
 ?>
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
