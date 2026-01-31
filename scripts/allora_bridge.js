@@ -9,7 +9,7 @@ require('dotenv').config();
 
 // Configuration
 const NILE_RPC = "https://api.nileex.io"; // TRON Nile Testnet
-const CONTRACT_ADDRESS = "YOUR_DEPLOYED_CONTRACT_ADDRESS"; // From Nile TRONScan
+const CONTRACT_ADDRESS = "TJvbhpvWs2xda6wgoWgig9SivdTtfziVqK"; // From Nile TRONScan
 const PRIVATE_KEY = process.env.PRIVATE_KEY_NILE;
 
 const tronWeb = new TronWeb({
