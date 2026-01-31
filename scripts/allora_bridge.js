@@ -1,10 +1,5 @@
-/**
- * Game of Trons: AI-to-TRON Inference Bridge
- * Version: 4.1 - With Auto-Logging for Windows 7
- */
-
 const TronWeb = require('tronweb');
-const fs = require('fs'); // Added for file saving
+const fs = require('fs');
 require('dotenv').config();
 
 const NILE_RPC = "https://api.nileex.io"; 
@@ -18,8 +13,9 @@ const tronWeb = new TronWeb({
 
 const CONTRACT_ABI = [{
     "inputs": [
-        {"internalType": "string", "name": "target", "type": "string"},
-        {"internalType": "uint256", "name": "yieldAlpha", "type": "uint256"}
+        {"internalType": "uint256", "name": "tokenId", "type": "uint256"},
+        {"internalType": "uint256", "name": "signalStrength", "type": "uint256"},
+        {"internalType": "uint256", "name": "yieldAmount", "type": "uint256"}
     ],
     "name": "recordConquest",
     "outputs": [],
@@ -27,44 +23,34 @@ const CONTRACT_ABI = [{
     "type": "function"
 }];
 
-async function fetchAlloraInference() {
-    console.log("🧠 [Allora] Calculating yield alpha...");
-    return {
-        targetName: "SunSwap_Siege_v4", 
-        signalStrength: Math.floor(Math.random() * 50) + 50,
-        confidence: 0.98
-    };
-}
-
-async function executeAgentConquest() {
+async function runBridge() {
     try {
-        const inference = await fetchAlloraInference();
-        
-        if (inference.confidence > 0.90) {
-            console.log("🔥 [Neural-Seed] Initiating Conquest...");
+        const contract = await tronWeb.contract(CONTRACT_ABI, CONTRACT_ADDRESS);
+        const myAddress = tronWeb.address.fromPrivateKey(PRIVATE_KEY);
 
-            const contract = await tronWeb.contract(CONTRACT_ABI, CONTRACT_ADDRESS);
-            
-            const result = await contract.recordConquest(
-                inference.targetName, 
-                Math.floor(inference.signalStrength) // Ensure it's a whole number
-            ).send({
-                feeLimit: 100000000,
-                callValue: 0,
-                shouldPollResponse: false // Helps avoid timeout errors on Win 7
-            });
-            console.log(`✅ [Success] Hash: ${result}`);
+        console.log("🧠 [Allora] Calculating yield alpha...");
+        const signal = Math.floor(Math.random() * 50) + 50;
+        const yieldAmt = 1000000; // 1 TRX in SUN
 
-            // --- AUTO-LOGGING BLOCK ---
-            const logEntry = `[${new Date().toLocaleString()}] Hash: ${result} | Target: ${inference.targetName}\n`;
-            fs.appendFileSync('conquests.txt', logEntry);
-            console.log("📂 Result saved to conquests.txt");
-            // ---------------------------
+        console.log(`🔥 [Neural-Seed] Sending Signal to Token #0...`);
 
-        }
+        // Execute the call with 3 parameters to match your Solidity
+        const result = await contract.recordConquest(
+            0,         // Token ID
+            signal,    // Signal Strength
+            yieldAmt   // Yield Amount
+        ).send({
+            feeLimit: 100000000 // 100 TRX Energy Limit
+        });
+
+        const logEntry = `[${new Date().toLocaleString()}] SUCCESS! Signal: ${signal} | Hash: ${result}\n`;
+        fs.appendFileSync('conquests.txt', logEntry);
+        console.log("✅ Conquest recorded successfully!");
+
     } catch (error) {
-        console.error("❌ [Error] Bridge failure:", error.message || error);
+        console.error("❌ Bridge Error:", error.message || error);
+        console.log("💡 Tip: Ensure you have added your address as a Worker via TronScan first.");
     }
 }
 
-executeAgentConquest();
+runBridge();
