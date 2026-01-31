@@ -22,7 +22,8 @@ To facilitate the TRON DAO grant review process, this repository is structured a
 * **[Smart Contracts](./contracts/NeuralSeed.sol):** The core TRC-721 "Neural-Seed" implementation (Verified on Nile Testnet).
 * **[Inference Bridge](./scripts/allora_bridge.js):** The functional prototype showing how AI signals trigger on-chain conquests.
 * **[Funding & Milestones](./MILESTONES.md):** Our transparent roadmap for the $250,000 grant allocation and TVL growth targets.
-
+* **[Technical FAQ](./docs/Technical_FAQ.md):** Detailed security protocols, resource management, and exploit defense strategies.
+  
 ## 🛠 Strategic Roadmap
 1.  **Phase I: The Genesis Siege** - (Current) Core smart contract deployment and TGE.
 2.  **Phase II: Cognitive Expansion** - Integration of the **War Room UX** and live Allora streams.
