@@ -19,7 +19,7 @@ Modern DeFi suffers from a 15% yield erosion due to human execution delays. Game
 To facilitate the TRON DAO grant review process, this repository is structured as follows:
 
 * **[Master Codex (Whitepaper)](./docs/whitepaper.php):** The full 14-volume technical specification, including the **Yield Conquest Calculus** and Macro-Tokenomics.
-* **[Smart Contracts](./contracts/NeuralSeed.sol):** The core TRC-721 "Neural-Seed" implementation (Verified on Nile Testnet).
+* **[Smart Contracts](./contracts/NeuralSeed.sol):** The core TRC-721 "Neural-Seed" implementation (**[Verified on Nile Testnet](https://nile.tronscan.org/#/contract/TJvbhpvWs2xda6wgoWgig9SivdTtfziVqK/code)**).
 * **[Inference Bridge](./scripts/allora_bridge.js):** The functional prototype showing how AI signals trigger on-chain conquests.
 * **[Funding & Milestones](./MILESTONES.md):** Our transparent roadmap for the $250,000 grant allocation and TVL growth targets.
 * **[Technical FAQ](./docs/Technical_FAQ.md):** Detailed security protocols, resource management, and exploit defense strategies.
