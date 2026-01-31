@@ -62,11 +62,12 @@ async function executeAgentConquest() {
             // We pass: 1. The target name (String), 2. The signal strength (Number)
             const result = await contract.recordConquest(
                 inference.targetName, 
-                inference.signalStrength
+                Math.floor(inference.signalStrength) // Ensure it's a whole number
             ).send({
-                feeLimit: 100000000 // 100 TRX limit for energy
+                feeLimit: 100000000,
+                callValue: 0,
+                shouldPollResponse: false // Helps avoid timeout errors on Win 7
             });
-
             console.log("-----------------------------------------");
             console.log(`✅ [Success] Conquest Hash: ${result}`);
             console.log(`📊 [Update] Target: ${inference.targetName}`);
