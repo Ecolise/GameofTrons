@@ -36,7 +36,7 @@ async function runBridge() {
 
         // Execute the call with 3 parameters to match your Solidity
         const result = await contract.recordConquest(
-            0,         // Token ID
+            1,         // Token ID
             signal,    // Signal Strength
             yieldAmt   // Yield Amount
         ).send({
