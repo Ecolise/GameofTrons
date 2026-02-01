@@ -43,6 +43,7 @@ async function runBridge() {
             feeLimit: 100000000 // 100 TRX Energy Limit
         });
 
+        const logPath = 'C:/xampp/htdocs/neural/conquests.txt';
         const logEntry = `[${new Date().toLocaleString()}] SUCCESS! Signal: ${signal} | Hash: ${result}\n`;
         fs.appendFileSync('conquests.txt', logEntry);
         console.log("✅ Conquest recorded successfully!");
