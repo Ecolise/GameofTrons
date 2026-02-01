@@ -32,7 +32,7 @@ async function runBridge() {
         const signal = Math.floor(Math.random() * 50) + 50;
         const yieldAmt = 1000000; // 1 TRX in SUN
 
-        console.log(`🔥 [Neural-Seed] Sending Signal to Token #0...`);
+        console.log(`🔥 [Neural-Seed] Sending Signal to New Token ...`);
 
         // Execute the call with 3 parameters to match your Solidity
         const result = await contract.recordConquest(
